@@ -105,12 +105,12 @@ for dataset in datasets:
 
         print("Average ensemble:", average_ensemble)
         ret4 = [rmse(G,ensemble_predictions),mse(G,ensemble_predictions),0,spearman(G,ensemble_predictions)]
-        ret4 =[dataset, 'ensemble'] +  [round(e,3) for e in ret4]
+        ret4 =[dataset, 'weighted_ensemble'] +  [round(e,3) for e in ret4]
         weighted_ensemble_predictions = [(p + p1 + p_gcnNet + p_gat_gcn)/4 for p, p1, p_gcnNet, p_gat_gcn in zip(P, P1, P2, P3)]
         # Calculate the average of the ensemble predictions
 
         ret5 = [rmse(G,weighted_ensemble_predictions),mse(G,weighted_ensemble_predictions),0,spearman(G,weighted_ensemble_predictions)]
-        ret5 =[dataset, 'weighted ensemble'] +  [round(e,3) for e in ret5]
+        ret5 =[dataset, 'ensemble'] +  [round(e,3) for e in ret5]
         result += [ ret1, ret2, ret3, ret4, ret5 ]
 with open('result.csv','w') as f:
     f.write('dataset,model,rmse,mse,pearson,spearman,ci\n')

@@ -7,3 +7,4 @@
 + davis: contains ensemble using davis model
 + kiba: containes ensemble using kiba model
 + most of the source code is downloaded from https://github.com/thinng/GraphDTA
++ davis/result.csv saves the results
